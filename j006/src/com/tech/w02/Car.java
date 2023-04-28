@@ -1,6 +1,7 @@
 package com.tech.w02;
 
 public class Car {
+	// 상태 필드
 	//필드에서는 기본값으로 알아서 초기화
 	String color;
 	int speed;
@@ -11,7 +12,7 @@ public class Car {
 //		channel=(int)Math.random();//대입된값이면 초기화를 의미
 		System.out.println(channel);
 		Car c = new Car();//객체 생성
-		c.runCar();
+		c.runCar();//호출실행 
 	}//
 	
 	//메소드

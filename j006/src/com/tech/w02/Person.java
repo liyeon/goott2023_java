@@ -1,15 +1,16 @@
 package com.tech.w02;
 
 public class Person {
+	//필드 두개
 	String name;
 	int age;
 
 	public static void main(String[] args) {
 		Person person=new Person();
 		person.name="길동이";
-		person.laugh();
+		person.laugh();//메소드 호출
 		person.name="태여니";
-		person.laugh();
+		person.laugh();//메소드 호출
 		
 		//외부 파일 접근
 		Television tvP=new Television();
