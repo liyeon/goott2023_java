@@ -23,7 +23,7 @@ public class MethodExam4 {
 		for (int i = start; i <= end; i++) {
 			sum+=i;
 		}//for
-		return sum;
+		return sum;//호출한곳으로돌려보냄
 	}//makeSum
 	
 	public float makeAvg(int tot, int cnt) {
