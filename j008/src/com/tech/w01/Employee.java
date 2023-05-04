@@ -1,6 +1,6 @@
 package com.tech.w01;
 
-public class Employee {
+public abstract class Employee {//추상 클래스
 	private String empno;// 사번
 	private String ename;// 이름
 	private int pay;// 급여
@@ -39,7 +39,10 @@ public class Employee {
 		this.pay = pay;
 	}
 
-	public double getMonthPay() {
-		return 0;
+	public abstract double getMonthPay();//추상 메소드
+	
+	@Override
+	public String toString() {
+		return getEmpno()+" : "+getEname()+" : "+getPay();
 	}
 }// class
