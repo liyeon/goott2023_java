@@ -8,15 +8,16 @@ public class RegulerEmployee extends Employee {
 		this.bonus = bonus;
 	}
 
-	public int getBonus() {
-		return bonus;
-	}
-
-	public void setBonus(int bonus) {
-		this.bonus = bonus;
-	}
-
+	@Override
 	public double getMonthPay() {
-		return 0;
+		//한달 급여
+		float monthPay=getPay()/12+bonus/12;
+		return monthPay;
 	}
+	
+	@Override
+	public String toString() {
+		return super.toString()+" : "+bonus;
+	}
+	
 }// class
