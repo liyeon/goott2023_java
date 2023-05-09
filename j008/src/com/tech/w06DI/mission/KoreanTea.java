@@ -1,5 +1,5 @@
 package com.tech.w06DI.mission;
 
 public interface KoreanTea {
-	public String getName();
+	public String teaCall();
 }//interface
