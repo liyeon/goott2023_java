@@ -10,6 +10,6 @@ public class Tea {
 	}
 	
 	public void teaType() {
-		System.out.println(tea.getName());
+		System.out.println(tea.teaCall());
 	}
 }//class
