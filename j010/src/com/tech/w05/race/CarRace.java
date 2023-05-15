@@ -87,10 +87,10 @@ class RaceFrame extends JFrame implements ActionListener {
 		thread5 = new RaceThreadx(this, 50, 300, 38, 36);
 
 		// 이미지 처리
-		img = Toolkit.getDefaultToolkit().getImage("src/newcar4.png");
-		img1 = Toolkit.getDefaultToolkit().getImage("src/newcar4.png");
+		img = Toolkit.getDefaultToolkit().getImage("src/newcar1.png");
+		img1 = Toolkit.getDefaultToolkit().getImage("src/newcar2.png");
 		img2 = Toolkit.getDefaultToolkit().getImage("src/newcar4.png");
-		img3 = Toolkit.getDefaultToolkit().getImage("src/newcar4.png");
+		img3 = Toolkit.getDefaultToolkit().getImage("src/newcar3.png");
 		img4 = Toolkit.getDefaultToolkit().getImage("src/newcar4.png");
 	}// constructor
 
