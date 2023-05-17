@@ -38,7 +38,6 @@ public class GBBFrame extends JFrame implements ActionListener {
 		label.setFont(font);
 		label.setForeground(Color.white);
 		/// j011/src/gawi.png
-		JLabel text = new JLabel("가위 : 1, 바위 : 2, 보 : 3");
 		img1 = new ImageIcon("src/gawi.png");
 		Image img1_c = img1.getImage().getScaledInstance(50, 60, Image.SCALE_SMOOTH);
 		ImageIcon changeImg1 = new ImageIcon(img1_c);
@@ -76,7 +75,6 @@ public class GBBFrame extends JFrame implements ActionListener {
 		result.setHorizontalAlignment(JLabel.CENTER);
 		result.setPreferredSize(new Dimension(0, 50));
 
-		add(text, "North");
 		add(label, "North");
 		add(gbb, "Center");
 		add(result, "South");
