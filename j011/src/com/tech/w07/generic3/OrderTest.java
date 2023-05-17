@@ -1,7 +1,5 @@
 package com.tech.w07.generic3;
 
-import java.util.List;
-
 class OrderVal<K, V> {
 	private K key;
 	private V value;
