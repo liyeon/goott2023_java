@@ -2,19 +2,15 @@ package com.tech.w05mission;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.GridLayout;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Iterator;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -22,55 +18,49 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.border.Border;
 
-public class StudentViwer extends JFrame {
+public class JobsViewer extends JFrame {
 	// swing 으로 db 컨트롤
-	JTextField no, name, addr, grade, birth, subj, score;
+	JTextField id, title, min_salary, max_salary;
 	JButton privButton, nextButton, insertButton, deleteButton, clearButton;
 
 	ResultSet rs;
 	Statement stmt;
 
-	public StudentViwer() throws SQLException {
+	public JobsViewer() throws SQLException {
 		Connection con = DBConnection.makeConnection();
-		String sql = "select * from studentinfo";
+		String sql = "select * from jobs2";
 		stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 		rs = stmt.executeQuery(sql);
 
 		setTitle("디비컨트롤로로로로롤");
-		setSize(500, 500);
+		setSize(500, 300);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setLayout(new BorderLayout());
+		
 		JPanel labelPanel = new JPanel();
 		JPanel fieldPanel = new JPanel();
 		labelPanel.setLayout(new GridLayout(0, 1));
 		labelPanel.setBorder(BorderFactory.createEmptyBorder(5, 20, 10, 20));
-		labelPanel.setBackground(Color.decode("#a5dff9"));
+		labelPanel.setBackground(Color.decode("#D0F5BE"));
 		fieldPanel.setLayout(new GridLayout(0, 1));
-		JLabel[] labels = new JLabel[7];
-		labels[0] = new JLabel("no");
-		labels[1] = new JLabel("name");
-		labels[2] = new JLabel("addr");
-		labels[3] = new JLabel("grade");
-		labels[4] = new JLabel("birth");
-		labels[5] = new JLabel("subj");
-		labels[6] = new JLabel("score");
+		JLabel[] labels = new JLabel[4];
+		labels[0] = new JLabel("ID");
+		labels[1] = new JLabel("TITLE");
+		labels[2] = new JLabel("최소 봉급");
+		labels[3] = new JLabel("최대 봉급");
 
 		for (int i = 0; i < labels.length; i++) {
 			labelPanel.add(labels[i]);
 			labels[i].setSize(new Dimension(200, 30));
 			labels[i].setFont(new Font("나눔고딕", Font.BOLD, 15));
-		}
-		fieldPanel.setBackground(Color.decode("#a5dff9"));
-		fieldPanel.add(no = new JTextField());
-		fieldPanel.add(name = new JTextField());
-		fieldPanel.add(addr = new JTextField());
-		fieldPanel.add(grade = new JTextField());
-		fieldPanel.add(birth = new JTextField());
-		fieldPanel.add(subj = new JTextField());
-		fieldPanel.add(score = new JTextField());
+		}//for
+		fieldPanel.setBackground(Color.decode("#D0F5BE"));
+		fieldPanel.add(id = new JTextField());
+		fieldPanel.add(title = new JTextField());
+		fieldPanel.add(min_salary = new JTextField());
+		fieldPanel.add(max_salary = new JTextField());
 
 		JPanel btnPanel = new JPanel();
 		btnPanel.setLayout(new GridLayout(0, 5));
@@ -78,20 +68,17 @@ public class StudentViwer extends JFrame {
 		privButton = new JButton("priv");
 		privButton.setBorder(null);
 		privButton.setBackground(Color.decode("#60c5ba"));
-		privButton.setPreferredSize(new Dimension(0,50));
+		privButton.setPreferredSize(new Dimension(0, 50));
 		privButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("priv");
 				try {
 					rs.previous();
-					no.setText(rs.getString("s_no"));
-					name.setText(rs.getString("s_name"));
-					addr.setText(rs.getString("s_addr"));
-					grade.setText(rs.getString("s_grade"));
-					birth.setText(rs.getString("s_birth"));
-					subj.setText(rs.getString("s_subj"));
-					score.setText(rs.getString("s_score"));
+					id.setText(rs.getString("job_id"));
+					title.setText(rs.getString("job_title"));
+					min_salary.setText(rs.getString("min_salary"));
+					max_salary.setText(rs.getString("max_salary"));
 				} catch (SQLException e1) {
 					System.out.println("자료없음");
 //					e1.printStackTrace();
@@ -107,13 +94,10 @@ public class StudentViwer extends JFrame {
 				System.out.println("next");
 				try {
 					rs.next();
-					no.setText(rs.getString("s_no"));
-					name.setText(rs.getString("s_name"));
-					addr.setText(rs.getString("s_addr"));
-					grade.setText(rs.getString("s_grade"));
-					birth.setText(rs.getString("s_birth"));
-					subj.setText(rs.getString("s_subj"));
-					score.setText(rs.getString("s_score"));
+					id.setText(rs.getString("job_id"));
+					title.setText(rs.getString("job_title"));
+					min_salary.setText(rs.getString("min_salary"));
+					max_salary.setText(rs.getString("max_salary"));
 				} catch (SQLException e1) {
 					System.out.println("자료없음");
 //					e1.printStackTrace();
@@ -127,19 +111,15 @@ public class StudentViwer extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("insert");
-				int sno = Integer.parseInt(no.getText());
-				String sname = name.getText();
-				String saddr = addr.getText();
-				int sgrade = Integer.parseInt(grade.getText());
-				String sbirth = birth.getText();
-				String ssubj = subj.getText();
-				int sscore = Integer.parseInt(score.getText());
-				String sql = "insert into studentinfo values('+" + sno + "', '" + sname + "', '" + saddr + "', '"
-						+ sgrade + "', '" + sbirth + "', '" + ssubj + "', '" + sscore + "')";
+				String jid = id.getText();
+				String jtitle = title.getText();
+				int jmin = Integer.parseInt(min_salary.getText());
+				int jmax = Integer.parseInt(max_salary.getText());
+				String sql = "insert into jobs2 values('" + jid + "', '" + jtitle + "'," + jmin + "," + jmax + ")";
 				try {
 					stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 					stmt.executeUpdate(sql);
-					rs = stmt.executeQuery("select*from studentinfo");
+					rs = stmt.executeQuery("select*from jobs2");
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				} // try~catch
@@ -152,13 +132,13 @@ public class StudentViwer extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("delete");
-				String sno = no.getText();
-				String sql = "delete from studentinfo WHERE s_no='" + sno + "'";
+				String jid = id.getText();
+				String sql = "delete from jobs2 WHERE job_id='" + jid + "'";
 				try {
 					stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
 					int cnt = stmt.executeUpdate(sql);
 					System.out.println("삭제 갯수 : " + cnt);
-					rs = stmt.executeQuery("select*from studentinfo");
+					rs = stmt.executeQuery("select*from jobs2");
 				} catch (SQLException e1) {
 					e1.printStackTrace();
 				} // try~catch
@@ -171,13 +151,10 @@ public class StudentViwer extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("clear");
-				no.setText("");
-				name.setText("");
-				addr.setText("");
-				grade.setText("");
-				birth.setText("");
-				subj.setText("");
-				score.setText("");
+				id.setText("");
+				title.setText("");
+				min_salary.setText("");
+				max_salary.setText("");
 			}// method
 		});// clearButton
 
@@ -193,6 +170,6 @@ public class StudentViwer extends JFrame {
 	}// constructor
 
 	public static void main(String[] args) throws SQLException {
-		new StudentViwer();
+		new JobsViewer();
 	}// main
 }// class
