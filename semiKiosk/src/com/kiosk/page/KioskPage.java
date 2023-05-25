@@ -20,8 +20,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
+import javax.swing.JTextArea;
+import javax.swing.ListSelectionModel;
 import javax.swing.UIManager;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -42,29 +46,30 @@ public class KioskPage implements ActionListener {
 	JLabel imgLabel, order;
 	static JTabbedPane pane;
 	String tabCss = "box-sizing: border-box; margin:0;padding: 15px 10px;width:95.3px;height:40px;border-radius:0px;text-align:center;";
-	
-
+	CModel c;
 	Font font = new Font("나눔고딕", Font.BOLD, 17);
 
 	JList<String> list;
 	DefaultListModel<String> model;
 	JButton insertBtn, cancelBtn;
 	JButton[] btn;
-	
-	Map<Integer, String> hm1=null;
-	Map<Integer, String> hm2=null;
+
+	Map<Integer, String> hm1 = null;
+	Map<Integer, String> hm2 = null;
 
 	public KioskPage() {
+
 		frame = new JFrame("C A F E::Kiosk");
 		frame.setLayout(new BorderLayout());
 		frame.setSize(600, 900);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setBackground(Color.white);
-		viewCoffee = new ViewCoffee();
-		viewAde = new ViewAde();
-		viewBlended = new ViewBlended();
-		viewSide = new ViewSide();
+		viewCoffee = new ViewCoffee(this);
+
+		viewAde = new ViewAde(this);
+		viewBlended = new ViewBlended(this);
+		viewSide = new ViewSide(this);
 
 		logoState = new JPanel();
 		frame.setIconImage(Favicon.getFavi());
@@ -99,21 +104,24 @@ public class KioskPage implements ActionListener {
 		order.setBackground(Color.decode("#7b00a0"));
 		order.setForeground(Color.white);
 		order.setFont(font);
-
+		// 메뉴 리스트========
 		menuList = new JPanel(new GridLayout(0, 1));
-		// 목록을 출력 할 수 있는 Jlist
+
 		list = new JList<String>();
+		list.setFont(font);
+		// 스크롤
+		JScrollPane listScroll = new JScrollPane(list);
+//		listScroll.getVerticalScrollBar().setValue(listScroll.getVerticalScrollBar().getMaximum());
+		// 목록을 출력 할 수 있는 Jlist
+
 		// 기본 모델 객체(목록에 출력할 Data 를 가지고 있는 객체)
 		model = new DefaultListModel<String>();
-		model.addElement("asdasd");
-		model.addElement("asdasd");
-		model.addElement("asdasd");
-		model.addElement("asdasd");
-		model.addElement("asdasd");
-		model.addElement("asdasd");
+		c = new CModel();
+//		model.addElement(c.getcName() + c.getcPrice());
 		list.setModel(model);
-		list.setFont(font);
-		menuList.add(list);
+		menuList.add(listScroll);
+
+		// ========하단 주문 버튼 패널
 		orderBtnPanel = new JPanel(new GridLayout(0, 2));
 		insertBtn = new JButton("주문진행");
 		cancelBtn = new JButton("주문취소");
@@ -128,20 +136,38 @@ public class KioskPage implements ActionListener {
 		cancelBtn.setBorder(null);
 		orderBtnPanel.add(insertBtn);
 		orderBtnPanel.add(cancelBtn);
+
+		// 메뉴 스테이트
 		orderState.add(order, BorderLayout.NORTH);
 		orderState.add(menuList, BorderLayout.CENTER);
 		orderState.add(orderBtnPanel, BorderLayout.SOUTH);
+
 		frame.add(orderState, BorderLayout.SOUTH);
 		frame.setVisible(true);
 	}// constructor
 
-	public void setVC(ViewCoffee vc) {
-		this.hm1=vc.menu;
-		this.hm2=vc.price;
-	}
-	
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		// JList겍체에게 선택된 item이 있는지. 있다면 몇번째 아이템이 선택되었는지 물어봐야한다.(메소드를 이용해야한다.)
+
+		int selectedIndex = list.getSelectedIndex();
+
+		if (selectedIndex >= 0) {// 선택된 Cell 이 있을 때
+			int result = JOptionPane.showConfirmDialog(this, selectedIndex + "번을 지우겠습니까?");
+			if (result == JOptionPane.YES_OPTION) {
+
+				// JList에 연결된 모델에서 해당 인덱스를 삭제한다.
+				model.remove(selectedIndex);
+
+				System.out.println("지워진 Index값은" + selectedIndex + " 번 입니다.");
+			} else {
+				System.out.println("선택된 INDEX 값은" + selectedIndex + "번 입니다.");
+			}
+
+		} else {// 선택되 Cell이 없을 때
+			JOptionPane.showMessageDialog(this, "삭제할 Cell을 선택해주세요");
+		}
+	}
 
 	}// actionListner
 

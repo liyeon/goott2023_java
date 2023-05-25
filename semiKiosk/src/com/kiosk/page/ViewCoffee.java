@@ -17,8 +17,12 @@ public class ViewCoffee extends JPanel implements ActionListener {
 	Map<Integer, String> price;
 	JButton[] btn;
 	KioskPage kioskPage;
+	CModel c = new CModel();
 
-	public ViewCoffee() {
+	public ViewCoffee(KioskPage kioskPage) {
+
+		this.kioskPage = kioskPage;
+
 		setLayout(new GridLayout(0, 4));
 		setBackground(Color.decode("#F8E8EE"));
 		btn = new JButton[6];
@@ -45,20 +49,23 @@ public class ViewCoffee extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		for (int i = 0; i < this.btn.length; i++) {
-			if (e.getSource() == this.btn[i]) {
+		for (int i = 0; i < btn.length; i++) {
+			if (e.getSource() == btn[i]) {
 				System.out.println(menu.get(i));
 				System.out.println(price.get(i));
-				
-				sendVC();
+				c.setcName(menu.get(i));
+				c.setcPrice(price.get(i));
+				send();
 			} // if
 		} // for
 	}// method override
 
-	public void sendVC() {
-		new KioskPage().setVC(this);
-	}
-	
+	public void send() {
+		String msg = c.getcName() + c.getcPrice();
+		// 모델에 입력한 문자열 추가하기
+		kioskPage.model.addElement(msg);
+	}// method
+
 	public void setMenu() {
 		menu.put(0, "HOT 아메리카노");
 		menu.put(1, "ICE 아메리카노");
