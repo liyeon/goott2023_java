@@ -3,7 +3,6 @@ package com.kiosk.page;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -11,7 +10,6 @@ import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.HashMap;
 import java.util.Map;
 
 import javax.swing.DefaultListModel;
@@ -24,17 +22,17 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
-import javax.swing.JTextArea;
-import javax.swing.ListSelectionModel;
 import javax.swing.UIManager;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 
 import com.kiosk.main.Favicon;
+import com.kiosk.main.MainFrame;
+import com.kiosk.order.OrderFrame;
 
-public class KioskPage implements ActionListener {
+public class KioskPage extends JFrame implements ActionListener, ListSelectionListener {
 	JFrame frame;
 	JPanel logoState, orderState, menuList, orderBtnPanel;
 	ViewCoffee viewCoffee;
@@ -49,7 +47,7 @@ public class KioskPage implements ActionListener {
 	CModel c;
 	Font font = new Font("나눔고딕", Font.BOLD, 17);
 
-	JList<String> list;
+	public JList<String> list;
 	DefaultListModel<String> model;
 	JButton insertBtn, cancelBtn;
 	JButton[] btn;
@@ -58,13 +56,12 @@ public class KioskPage implements ActionListener {
 	Map<Integer, String> hm2 = null;
 
 	public KioskPage() {
-
-		frame = new JFrame("C A F E::Kiosk");
-		frame.setLayout(new BorderLayout());
-		frame.setSize(600, 900);
-		frame.setLocationRelativeTo(null);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setBackground(Color.white);
+		setTitle("C A F E::Kiosk");
+		setLayout(new BorderLayout());
+		setSize(600, 900);
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setBackground(Color.white);
 		viewCoffee = new ViewCoffee(this);
 
 		viewAde = new ViewAde(this);
@@ -72,7 +69,7 @@ public class KioskPage implements ActionListener {
 		viewSide = new ViewSide(this);
 
 		logoState = new JPanel();
-		frame.setIconImage(Favicon.getFavi());
+		setIconImage(Favicon.getFavi());
 		// 이미지 가져오기
 		logo = new ImageIcon("src/img/logo.png");
 		changeLogo = logo.getImage().getScaledInstance(200, 38, Image.SCALE_SMOOTH);
@@ -83,7 +80,7 @@ public class KioskPage implements ActionListener {
 		imgLabel.setIcon(logoReal);
 		logoState.add(imgLabel);
 		logoState.add(viewCoffee);
-		frame.add(imgLabel, "North");
+		add(imgLabel, "North");
 		tabUI();
 		pane = new JTabbedPane();
 		pane.setUI(new UIStyle());
@@ -92,7 +89,7 @@ public class KioskPage implements ActionListener {
 		pane.add(generateHtml("에이드", tabCss), viewAde);
 		pane.add(generateHtml("블렌디드", tabCss), viewBlended);
 		pane.add(generateHtml("사이드", tabCss), viewSide);
-		frame.add(pane, BorderLayout.CENTER);
+		add(pane, BorderLayout.CENTER);
 
 //=========================탭 끝 ===================================
 
@@ -109,11 +106,9 @@ public class KioskPage implements ActionListener {
 
 		list = new JList<String>();
 		list.setFont(font);
+		list.addListSelectionListener(this);
 		// 스크롤
 		JScrollPane listScroll = new JScrollPane(list);
-//		listScroll.getVerticalScrollBar().setValue(listScroll.getVerticalScrollBar().getMaximum());
-		// 목록을 출력 할 수 있는 Jlist
-
 		// 기본 모델 객체(목록에 출력할 Data 를 가지고 있는 객체)
 		model = new DefaultListModel<String>();
 		c = new CModel();
@@ -134,6 +129,8 @@ public class KioskPage implements ActionListener {
 		insertBtn.setFont(font);
 		cancelBtn.setFont(font);
 		cancelBtn.setBorder(null);
+		insertBtn.addActionListener(this);
+		cancelBtn.addActionListener(this);
 		orderBtnPanel.add(insertBtn);
 		orderBtnPanel.add(cancelBtn);
 
@@ -142,35 +139,35 @@ public class KioskPage implements ActionListener {
 		orderState.add(menuList, BorderLayout.CENTER);
 		orderState.add(orderBtnPanel, BorderLayout.SOUTH);
 
-		frame.add(orderState, BorderLayout.SOUTH);
-		frame.setVisible(true);
+		add(orderState, BorderLayout.SOUTH);
+		setVisible(true);
 	}// constructor
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// JList겍체에게 선택된 item이 있는지. 있다면 몇번째 아이템이 선택되었는지 물어봐야한다.(메소드를 이용해야한다.)
-
+		if (e.getSource() == cancelBtn) {
+			new MainFrame();
+			dispose();
+		}else if(e.getSource()==insertBtn) {
+//			new OrderFrame(this);
+//			dispose();
+		}//if
+	}// actionListner
+	
+	@Override
+	public void valueChanged(ListSelectionEvent e) {
 		int selectedIndex = list.getSelectedIndex();
-
 		if (selectedIndex >= 0) {// 선택된 Cell 이 있을 때
-			int result = JOptionPane.showConfirmDialog(this, selectedIndex + "번을 지우겠습니까?");
+			int result = JOptionPane.showConfirmDialog(null, selectedIndex + "번을 지우겠습니까?");
 			if (result == JOptionPane.YES_OPTION) {
-
 				// JList에 연결된 모델에서 해당 인덱스를 삭제한다.
 				model.remove(selectedIndex);
-
-				System.out.println("지워진 Index값은" + selectedIndex + " 번 입니다.");
+				System.out.println("지워진 Index값은" + selectedIndex + 1 + " 번 입니다.");
 			} else {
-				System.out.println("선택된 INDEX 값은" + selectedIndex + "번 입니다.");
-			}
-
-		} else {// 선택되 Cell이 없을 때
-			JOptionPane.showMessageDialog(this, "삭제할 Cell을 선택해주세요");
-		}
-	}
-
-	}// actionListner
-
+				System.out.println("선택된 INDEX 값은" + selectedIndex + 1 + "번 입니다.");
+			} // if
+		} // if
+	}// method override
 	public static String generateHtml(String tabLabel, String style) {
 		String ret = "<html><body style = '" + style + "'>" + tabLabel + "</body></html>";
 		return ret;
@@ -191,11 +188,6 @@ public class KioskPage implements ActionListener {
 		UIManager.put("TabbedPane.highlight", new ColorUIResource(Color.decode("#7b00a0")));
 		UIManager.put("TabbedPane.focus", Color.decode("#F8E8EE"));
 	}// method
-
-	public static void main(String[] args) {
-		new KioskPage();
-	}// main
-
 }// class
 
 class UIStyle extends BasicTabbedPaneUI {

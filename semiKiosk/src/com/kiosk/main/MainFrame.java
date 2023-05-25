@@ -56,7 +56,7 @@ public class MainFrame extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				new KioskPage();
-				repaint();
+				dispose();
 			}// override
 		});// actionListener
 		imagePanel.setBackground(Color.decode("#FFFFFF"));

@@ -41,7 +41,7 @@ public class ViewCoffee extends JPanel implements ActionListener {
 			btn[i].setVerticalTextPosition(JButton.BOTTOM); // 버튼 수직 기준 텍스트 위치 지정
 			btn[i].setHorizontalTextPosition(JButton.CENTER); // 버튼 수평 기준 텍스트 위치 지정
 			btn[i].setBackground(Color.white);
-			btn[i].setText("<html><body><center>" + menu.get(i) + "<br/>" + price.get(i) + "</center></body></html>");
+			btn[i].setText("<html><body><center>" + menu.get(i) + "<br/>" + price.get(i) + "원</center></body></html>");
 			btn[i].addActionListener(this);
 			add(btn[i]);
 		} // for
@@ -61,7 +61,7 @@ public class ViewCoffee extends JPanel implements ActionListener {
 	}// method override
 
 	public void send() {
-		String msg = c.getcName() + c.getcPrice();
+		String msg = c.getcName() + c.getcPrice()+"원";
 		// 모델에 입력한 문자열 추가하기
 		kioskPage.model.addElement(msg);
 	}// method
@@ -76,11 +76,11 @@ public class ViewCoffee extends JPanel implements ActionListener {
 	}// method
 
 	public void setPrice() {
-		price.put(0, "2000원");
-		price.put(1, "2500원");
-		price.put(2, "3500원");
-		price.put(3, "4000원");
-		price.put(4, "3900원");
-		price.put(5, "3900원");
+		price.put(0, "2000");
+		price.put(1, "2500");
+		price.put(2, "3500");
+		price.put(3, "4000");
+		price.put(4, "3900");
+		price.put(5, "3900");
 	}// method
 }// class
