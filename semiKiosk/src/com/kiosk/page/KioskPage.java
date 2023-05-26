@@ -10,6 +10,11 @@ import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Map;
 
 import javax.swing.DefaultListModel;
@@ -28,9 +33,9 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.plaf.ColorUIResource;
 import javax.swing.plaf.basic.BasicTabbedPaneUI;
 
+import com.db.DBConnection;
 import com.kiosk.main.Favicon;
 import com.kiosk.main.MainFrame;
-import com.kiosk.order.OrderFrame;
 
 public class KioskPage extends JFrame implements ActionListener, ListSelectionListener {
 	JFrame frame;
@@ -46,14 +51,11 @@ public class KioskPage extends JFrame implements ActionListener, ListSelectionLi
 	String tabCss = "box-sizing: border-box; margin:0;padding: 15px 10px;width:95.3px;height:40px;border-radius:0px;text-align:center;";
 	CModel c;
 	Font font = new Font("나눔고딕", Font.BOLD, 17);
-
+	Connection conn = null;
 	public JList<String> list;
 	DefaultListModel<String> model;
 	JButton insertBtn, cancelBtn;
 	JButton[] btn;
-
-	Map<Integer, String> hm1 = null;
-	Map<Integer, String> hm2 = null;
 
 	public KioskPage() {
 		setTitle("C A F E::Kiosk");
@@ -148,26 +150,67 @@ public class KioskPage extends JFrame implements ActionListener, ListSelectionLi
 		if (e.getSource() == cancelBtn) {
 			new MainFrame();
 			dispose();
-		}else if(e.getSource()==insertBtn) {
-//			new OrderFrame(this);
-//			dispose();
-		}//if
+		} else if (e.getSource() == insertBtn) {
+			int price = 0;
+			int priceTot = 0;
+			if (model.getSize() == 0) {
+				JOptionPane.showMessageDialog(null, "메뉴를 선택해주세요");
+			} else {
+				String[] a;
+				ArrayList<String> mm = new ArrayList<>();
+				String menu = null;
+				String cmenu = null;
+				String ctotal;
+				conn = DBConnection.makeConnection();
+				for (int i = 0; i < list.getModel().getSize(); i++) {
+					System.out.println(model.get(i));
+					a = model.get(i).split(":");
+					menu = a[0];
+					mm.add(menu);
+					price = Integer.parseInt(a[1]);
+					priceTot += price;
+					System.out.println("=======" + menu + "====" + price);
+				} // for
+				int j = JOptionPane.showConfirmDialog(null,
+						"총 갯수 : " + model.getSize() + " \n총 금액 : " + priceTot + "원\n주문하시겠습니까?", "주문확인",
+						JOptionPane.YES_NO_OPTION, JOptionPane.INFORMATION_MESSAGE);
+				if (j == 0) {
+					System.out.println(mm.toString());
+					cmenu = mm.toString();
+					ctotal = priceTot + "";
+					String insertCafeSql = "insert into cafe_order values(cafeorder_seq.nextval,'" + cmenu + "','"
+							+ ctotal + "',sysdate)";
+					try {
+						Statement stmt = conn.createStatement();
+						stmt.executeUpdate(insertCafeSql);
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					} // try~catch
+					JOptionPane.showMessageDialog(null, "주문이 완료되었습니다.");
+					model.clear();
+					System.out.println("총 가격 : " + priceTot);
+				} // if j
+			} // if
+		} // if
 	}// actionListner
-	
+
 	@Override
 	public void valueChanged(ListSelectionEvent e) {
 		int selectedIndex = list.getSelectedIndex();
 		if (selectedIndex >= 0) {// 선택된 Cell 이 있을 때
-			int result = JOptionPane.showConfirmDialog(null, selectedIndex + "번을 지우겠습니까?");
+			int result = JOptionPane.showConfirmDialog(null,
+					(selectedIndex + 1) + "번 : " + list.getSelectedValue() + "을 지우겠습니까?", "주문삭제",
+					JOptionPane.OK_CANCEL_OPTION,JOptionPane.PLAIN_MESSAGE);
 			if (result == JOptionPane.YES_OPTION) {
-				// JList에 연결된 모델에서 해당 인덱스를 삭제한다.
+				// JList에 연결된 모델에서 해당 인덱스를 삭제
 				model.remove(selectedIndex);
-				System.out.println("지워진 Index값은" + selectedIndex + 1 + " 번 입니다.");
+				System.out.println("지워진 Index값은" + (selectedIndex + 1) + " 번 입니다.");
 			} else {
-				System.out.println("선택된 INDEX 값은" + selectedIndex + 1 + "번 입니다.");
+				System.out.println("선택된 INDEX 값은" + (selectedIndex + 1) + "번 입니다.");
 			} // if
 		} // if
 	}// method override
+
 	public static String generateHtml(String tabLabel, String style) {
 		String ret = "<html><body style = '" + style + "'>" + tabLabel + "</body></html>";
 		return ret;

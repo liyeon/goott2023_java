@@ -61,14 +61,14 @@ public class ViewCoffee extends JPanel implements ActionListener {
 	}// method override
 
 	public void send() {
-		String msg = c.getcName() + c.getcPrice()+"원";
+		String msg = c.getcName()+":" + c.getcPrice();
 		// 모델에 입력한 문자열 추가하기
 		kioskPage.model.addElement(msg);
 	}// method
 
 	public void setMenu() {
-		menu.put(0, "HOT 아메리카노");
-		menu.put(1, "ICE 아메리카노");
+		menu.put(0, "HOT아메리카노");
+		menu.put(1, "ICE아메리카노");
 		menu.put(2, "카페라떼");
 		menu.put(3, "콜드브루");
 		menu.put(4, "카페모카");

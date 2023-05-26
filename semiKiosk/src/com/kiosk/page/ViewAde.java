@@ -20,7 +20,6 @@ public class ViewAde extends JPanel implements ActionListener {
 	CModel c = new CModel();
 
 	public ViewAde(KioskPage kioskPage) {
-
 		this.kioskPage = kioskPage;
 
 		setLayout(new GridLayout(0, 4));
@@ -77,7 +76,7 @@ public class ViewAde extends JPanel implements ActionListener {
 	}// method override
 
 	public void send() {
-		String msg = c.getcName() + c.getcPrice()+"원";
+		String msg = c.getcName() + ":" + c.getcPrice();
 		// 모델에 입력한 문자열 추가하기
 		kioskPage.model.addElement(msg);
 	}// method

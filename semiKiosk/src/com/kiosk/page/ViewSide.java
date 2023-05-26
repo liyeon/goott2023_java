@@ -60,7 +60,7 @@ public class ViewSide extends JPanel implements ActionListener {
 	}// method override
 
 	public void send() {
-		String msg = c.getcName() + c.getcPrice();
+		String msg = c.getcName()+":" + c.getcPrice();
 		// 모델에 입력한 문자열 추가하기
 		kioskPage.model.addElement(msg);
 	}// method
@@ -76,13 +76,13 @@ public class ViewSide extends JPanel implements ActionListener {
 	}// method
 
 	public void setPrice() {
-		price.put(0, "2800원");
-		price.put(1, "2800원");
-		price.put(2, "3900원");
-		price.put(3, "3900원");
-		price.put(4, "3900원");
-		price.put(5, "5200원");
-		price.put(6, "4200원");
+		price.put(0, "2800");
+		price.put(1, "2800");
+		price.put(2, "3900");
+		price.put(3, "3900");
+		price.put(4, "3900");
+		price.put(5, "5200");
+		price.put(6, "4200");
 	}// method
 
 }// class

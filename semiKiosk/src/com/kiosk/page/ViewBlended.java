@@ -61,7 +61,7 @@ public class ViewBlended extends JPanel implements ActionListener {
 	}// method override
 
 	public void send() {
-		String msg = c.getcName() + c.getcPrice();
+		String msg = c.getcName()+":" + c.getcPrice();
 		// 모델에 입력한 문자열 추가하기
 		kioskPage.model.addElement(msg);
 	}// method
@@ -77,12 +77,12 @@ public class ViewBlended extends JPanel implements ActionListener {
 	}// method
 
 	public void setPrice() {
-		price.put(0, "4400원");
-		price.put(1, "4400원");
-		price.put(2, "4400원");
-		price.put(3, "4400원");
-		price.put(4, "4400원");
-		price.put(5, "4400원");
-		price.put(6, "4700원");
+		price.put(0, "4400");
+		price.put(1, "4400");
+		price.put(2, "4400");
+		price.put(3, "4400");
+		price.put(4, "4400");
+		price.put(5, "4400");
+		price.put(6, "4700");
 	}// method
 }// class

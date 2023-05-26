@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DBConnection{
 	public DBConnection() {}
 
-	static Connection makeConnection() {
+	public static Connection makeConnection() {
 		Connection con = null;
 		// 커넥션 완성
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
