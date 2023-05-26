@@ -65,6 +65,7 @@ public class MainFrame extends JFrame {
 
 		add(imagePanel, BorderLayout.CENTER);
 		add(btn, BorderLayout.SOUTH);
+		setResizable(false);//사이즈 조절 불가
 		setVisible(true);
 	}// constructor
 }// class

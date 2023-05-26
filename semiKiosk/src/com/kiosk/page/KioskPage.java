@@ -142,6 +142,7 @@ public class KioskPage extends JFrame implements ActionListener, ListSelectionLi
 		orderState.add(orderBtnPanel, BorderLayout.SOUTH);
 
 		add(orderState, BorderLayout.SOUTH);
+		setResizable(false);//사이즈 조절 불가
 		setVisible(true);
 	}// constructor
 

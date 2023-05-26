@@ -1,7 +1,9 @@
 package com.kiosk.main;
 
-public class Client {
+import com.kiosk.admin.LoginFrame;
+
+public class MainClass {
 	public static void main(String[] args) {
-		new MainFrame();
+		new LoginFrame();
 	}// main
 }// class
