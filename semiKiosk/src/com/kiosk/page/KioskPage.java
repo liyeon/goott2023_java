@@ -234,10 +234,7 @@ public class KioskPage extends JFrame implements ActionListener, ListSelectionLi
 		UIManager.put("TabbedPane.highlight", new ColorUIResource(Color.decode("#7b00a0")));
 		UIManager.put("TabbedPane.focus", Color.decode("#F8E8EE"));
 	}// method
-	
-	public static void main(String[] args) {
-		new KioskPage();
-	}
+
 }// class
 
 class UIStyle extends BasicTabbedPaneUI {
