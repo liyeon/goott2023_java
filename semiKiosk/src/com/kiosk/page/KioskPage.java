@@ -122,6 +122,8 @@ public class KioskPage extends JFrame implements ActionListener, ListSelectionLi
 		orderBtnPanel = new JPanel(new GridLayout(0, 2));
 		insertBtn = new JButton("주문진행");
 		cancelBtn = new JButton("주문취소");
+		insertBtn.setFocusable(false);
+		cancelBtn.setFocusable(false);
 		insertBtn.setPreferredSize(new Dimension(0, 40));
 		insertBtn.setBorder(null);
 		insertBtn.setBackground(Color.decode("#7b00a0"));
@@ -142,7 +144,7 @@ public class KioskPage extends JFrame implements ActionListener, ListSelectionLi
 		orderState.add(orderBtnPanel, BorderLayout.SOUTH);
 
 		add(orderState, BorderLayout.SOUTH);
-		setResizable(false);//사이즈 조절 불가
+		setResizable(false);// 사이즈 조절 불가
 		setVisible(true);
 	}// constructor
 
@@ -201,7 +203,7 @@ public class KioskPage extends JFrame implements ActionListener, ListSelectionLi
 		if (selectedIndex >= 0) {// 선택된 Cell 이 있을 때
 			int result = JOptionPane.showConfirmDialog(null,
 					(selectedIndex + 1) + "번 : " + list.getSelectedValue() + "을 지우겠습니까?", "주문삭제",
-					JOptionPane.OK_CANCEL_OPTION,JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
 			if (result == JOptionPane.YES_OPTION) {
 				// JList에 연결된 모델에서 해당 인덱스를 삭제
 				model.remove(selectedIndex);
@@ -222,7 +224,7 @@ public class KioskPage extends JFrame implements ActionListener, ListSelectionLi
 		UIManager.put("TabbedPane.darkShadow", new ColorUIResource(Color.decode("#7b00a0")));
 		UIManager.put("TabbedPane.contentOpaque", false);
 		UIManager.put("TabbedPane.contentAreaColor ", Color.decode("#7b00a0"));
-		UIManager.put("TabbedPane.selected", Color.decode("#F8E8EE"));
+		UIManager.put("TabbedPane.selected", Color.decode("#3f0252"));
 		UIManager.put("TabbedPane.foreground", new ColorUIResource(Color.decode("#FFFFFF")));
 //		UIManager.put("TabbedPane.selectedForeground", new ColorUIResource(Color.decode("#47A992")));
 		UIManager.put("TabbedPane.background", Color.decode("#7b00a0"));
@@ -232,6 +234,10 @@ public class KioskPage extends JFrame implements ActionListener, ListSelectionLi
 		UIManager.put("TabbedPane.highlight", new ColorUIResource(Color.decode("#7b00a0")));
 		UIManager.put("TabbedPane.focus", Color.decode("#F8E8EE"));
 	}// method
+	
+	public static void main(String[] args) {
+		new KioskPage();
+	}
 }// class
 
 class UIStyle extends BasicTabbedPaneUI {

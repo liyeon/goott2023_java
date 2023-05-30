@@ -4,10 +4,13 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -28,7 +31,7 @@ public class AdminList extends JFrame {
 		setTitle("C A F E::Kiosk::Admin");
 		setLayout(new BorderLayout());
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setSize(600, 900);
+		setSize(900, 900);
 		setLocationRelativeTo(null);
 		getContentPane().setBackground(Color.decode("#7b00a0"));
 		// 파비콘 설정
@@ -38,9 +41,23 @@ public class AdminList extends JFrame {
 		JPanel l = new JPanel();
 		l.setBackground(Color.decode("#7b00a0"));
 		l.setPreferredSize(new Dimension(0, 50));
+		JButton btn = new JButton("뒤로가기");
+		btn.setFocusable(false);
+		btn.setBackground(Color.decode("#530969"));
+		btn.setForeground(Color.decode("#FFFFFF"));
+		btn.setPreferredSize(new Dimension(0, 40));
+		btn.setBorder(null);
+		btn.setFont(font);
+		btn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new AdminFrame();
+				dispose();
+			}
+		});
 		JPanel panel = new JPanel();
 		JLabel label = new JLabel("주문목록");
-		label.setPreferredSize(new Dimension(500, 50));
+		label.setPreferredSize(new Dimension(800, 50));
 		label.setFont(new Font("나눔바른고딕", Font.BOLD, 30));
 		label.setForeground(Color.white);
 		panel.add(label);
@@ -52,12 +69,13 @@ public class AdminList extends JFrame {
 		table.setEnabled(false);
 		table.setFont(font);
 		table.setRowHeight(40);
-		table.getColumnModel().getColumn(0).setPreferredWidth(20);
-		table.getColumnModel().getColumn(1).setPreferredWidth(180);
-		table.getColumnModel().getColumn(2).setPreferredWidth(20);
-		table.getColumnModel().getColumn(3).setPreferredWidth(70);
+		table.getColumnModel().getColumn(0).setPreferredWidth(30);
+		table.getColumnModel().getColumn(1).setPreferredWidth(600);
+		table.getColumnModel().getColumn(2).setPreferredWidth(80);
+		table.getColumnModel().getColumn(3).setPreferredWidth(140);
 		JScrollPane scroll = new JScrollPane(table);
-		scroll.setPreferredSize(new Dimension(500, 700));
+		scroll.setPreferredSize(new Dimension(800, 700));
+
 		// ================================================
 
 		Connection conn = DBConnection.makeConnection();
@@ -101,6 +119,7 @@ public class AdminList extends JFrame {
 
 		add(l, BorderLayout.NORTH);
 		add(panel, BorderLayout.CENTER);
+		add(btn, BorderLayout.SOUTH);
 		setResizable(false);// 사이즈 조정 못하게
 		setVisible(true);
 	}// constructor

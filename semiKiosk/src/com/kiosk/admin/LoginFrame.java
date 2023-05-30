@@ -80,7 +80,6 @@ public class LoginFrame extends JFrame implements FocusListener {
 				String myPwd = new String(pw.getPassword());
 				String selectMemberSql = String.format("SELECT * FROM cafe_member WHERE id = '%s' AND pw='%s'", myId,
 						myPwd);
-
 				try {
 					stmt = conn.createStatement();
 					rs = stmt.executeQuery(selectMemberSql);
@@ -116,7 +115,6 @@ public class LoginFrame extends JFrame implements FocusListener {
 				new JoinFrame();
 				dispose();
 			}
-
 		});
 
 		login.add(id);
@@ -130,10 +128,6 @@ public class LoginFrame extends JFrame implements FocusListener {
 		setVisible(true);
 	}// constructor
 
-	public static void main(String[] args) {
-		new LoginFrame();
-	}
-
 	@Override
 	public void focusGained(FocusEvent e) {
 		if (e.getSource() == id) {
@@ -144,8 +138,5 @@ public class LoginFrame extends JFrame implements FocusListener {
 	}// focusListener
 
 	@Override
-	public void focusLost(FocusEvent e) {
-		// TODO Auto-generated method stub
-
-	}
+	public void focusLost(FocusEvent e) {}
 }// class

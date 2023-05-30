@@ -37,6 +37,7 @@ public class AdminFrame extends JFrame {
 		panel.setBackground(Color.decode("#7b00a0"));
 
 		JButton btn1 = new JButton("주문등록");
+		btn1.setFocusable(false);
 		btn1.setFont(font);
 		btn1.setPreferredSize(new Dimension(250, 250));
 		btn1.setBackground(Color.decode("#cdbadb"));
@@ -52,6 +53,7 @@ public class AdminFrame extends JFrame {
 		});
 
 		JButton btn2 = new JButton("주문목록");
+		btn2.setFocusable(false);
 		btn2.setPreferredSize(new Dimension(250, 250));
 		btn2.setFont(font);
 		btn2.setForeground(Color.decode("#7b00a0"));
