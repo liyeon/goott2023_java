@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --size: 20px;
+            --g-color: #519d9e
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            width: 100%;
+            background-color: var(--g-color);
+            text-align: center;
+            padding: var(--size);
+            color: white;
+        }
+
+        section {
+            display: flex;
+            justify-content: space-between;
+            height: 300px;
+        }
+
+        aside {
+            width: 400px;
+            background-color: #58C9B9;
+            padding: var(--size);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        ul>li {
+            padding: 0px 0 0px 40px;
+            text-align: left;
+        }
+
+        ul>li:last-child div {
+            margin-top: 20px;
+            width: 150px;
+            text-align: center;
+        }
+
+        ul>li:last-child div>p {
+            color: #f0f0f0;
+        }
+
+        ul>li:last-child div>img {
+            width: 100%;
+            height: auto;
+            background-color: #fff;
+        }
+
+        article {
+            width: calc(100% - 400px);
+            background-color: #9DC8C8;
+            padding: var(--size);
+            overflow: auto;
+        }
+
+        article div:first-child {
+            margin-bottom: var(--size);
+        }
+
+        footer {
+            width: 100%;
+            padding: 20px;
+            background-color: var(--g-color);
+            text-align: center;
+        }
+
+        footer h4 {
+            color: #fff;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <header>
+            <h1>My Linux WebPage</h1>
+        </header>
+        <section>
+            <aside>
+                <h2>Links</h2>
+                <ul>
+                    <li>
+                        <a href="https://www.w3.org/" target="_blank">W3C</a>
+                    </li>
+                    <li>
+                        <a href="https://www.mozilla.org/ko/" target="_blank">MOZILLA</a>
+                    </li>
+                    <li>
+                        <a href="https://developer.mozilla.org/ko/docs/Web/HTML" target="_blank">HTML DOCS</a>
+                    </li>
+                    <li>
+                        <div>
+                            <img src="../imgs/coffee.png">
+                            <p>coffee</p>
+                        </div>
+                    </li>
+                </ul>
+            </aside>
+            <article>
+                <div>
+                    <h3>
+                        시맨틱 태그란?
+                    </h3>
+                    <p>
+                        시맨틱(semantic)이라는 '의미의', '의미론적인'라는 뜻을 가진 형용사입니다. <br>
+                        즉 시맨틱 태그는 의미를 부여한 태그라는 뜻이 됩니다.
+                    </p>
+                </div>
+                <div>
+                    <h3>
+                        div 와 span
+                    </h3>
+                    <p>
+                        div 태그와 span 태그는 웹 페이지의 영역을 설정 할 때 사용하는 태그입니다.
+                        웹 페이지의 전체적인 레이아웃을 설정 할 때 사용하는 태그인셈이죠.
+                        예전에는 table 태그를 사용하여 웹 페이지에 대한 전체적인 레이아웃을 구성하였던 반면
+                        요즘 트렌드는 오늘 배울 div 태그와 span 태그를 통해서 구성을 하는 것이 일반적입니다.
+                    </p>
+                </div>
+            </article>
+        </section>
+        <footer>
+            <h4>
+                Copyrightⓒ 2023 Liyeon Kim
+            </h4>
+        </footer>
+    </main>
+</body>
+
+</html>

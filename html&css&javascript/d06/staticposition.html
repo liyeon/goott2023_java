@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <!-- 
+        absolute 절대위치
+        relative 상대위치
+        static 고정 위치 정적위치↓
+        정적설정은 페이지의 정상 흐름으로 결정
+        대신, top bottom right 등의 속성의 영향을 받지 않음
+     -->
+    <style>
+        div,p{
+            width: 200px;
+            height: 50px;
+        }
+        #one {
+            background-color: rgb(177, 255, 255);
+        }
+
+        #two {
+            /* margin-left: 50px; */
+            position: absolute;
+            left: 130px;
+            top: 30px;
+            background-color: rgb(142, 215, 215);
+        }
+
+        #three {
+            position: fixed;
+            background-color: rgb(81, 131, 131);
+        }
+    </style>
+</head>
+
+<body>
+    <p id="one">
+        block #1
+    </p>
+    <div id="two">
+        block#2 <br>
+        position : static
+    </div>
+    <p id="three">block #3</p>
+</body>
+
+</html>

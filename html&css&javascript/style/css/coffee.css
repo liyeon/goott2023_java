@@ -1,0 +1,28 @@
+@font-face{
+    font-family:'bitbit';
+    src:url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff'),url('//cdn.df.nexon.com/img/common/font/DNFBitBit-Regular.woff2') ;
+  }
+body{
+    background-color: antiquewhite;
+    font-family:'bitbit';
+    color: #333;
+    text-align: center;
+}
+
+h1{
+    border-bottom: 3px solid rgb(121, 93, 88);
+    color: rgb(121, 93, 88);
+}
+
+p.first{
+    color: rgb(67, 62, 36);
+}
+
+p.second{
+    color: rgb(150, 111, 159);
+}
+
+em{
+    color: rgb(255, 116, 116);
+    font-weight: bold;
+}

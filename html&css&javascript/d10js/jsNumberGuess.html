@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        *{
+            box-sizing: border-box;
+        }
+        input[type="text"]{
+            width: 100px;;
+            height: 40px;
+        }
+        input[type="button"]{
+            height: 40px;
+            border: none;
+            border-radius: 5px;
+            padding: 0 20px;
+            background-color: #6b6b6b;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+    <script>
+        function guess(){
+            let computerNumber = parseInt(Math.random()*100);
+            let result ="";
+            // alert("호출");
+            // console.log(typeof(computerNumber));
+            let userNumber = parseInt(document.getElementById("user").value);
+            if(userNumber===computerNumber)result="성공입니다.";
+            else if(userNumber<computerNumber)result="입력 숫자가 작습니다.";
+            else if(userNumber>computerNumber)result="입력 숫자가 큽니다."
+            alert("입력 숫자 : "+userNumber + " 랜덤 숫자 : "+computerNumber+"\n"+result);
+        }
+    </script>
+</head>
+
+<body>
+    <h2>숫자 맞추기 게임</h2>
+    <h3>
+        숫자 1~100사이의 랜덤숫자를 몇번에 맞추는가 하는 게임
+    </h3>
+    <form action="#">
+        <label for="num">숫자 : </label>
+        <input type="text" name="num" id="user">
+        <input type="button" value="확인" onclick="guess();">
+    </form>
+</body>
+
+</html>

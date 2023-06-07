@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html{
+            font-size: 15px;
+        }
+        /* em 상위 태그의 영향 배수 
+            rem html 영향
+        */
+        div{
+            font-size: 2em;
+        }
+        /* html * div * li 니까 90px */
+        li{
+            font-size: 3em;
+        }
+        /* html * li 니까 30px */
+        #li2{
+            font-size: 2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- px em rem 비교 
+        em은 부모의 배수로 사이징
+        rem 루트(html) 사이즈의 영향을 받음
+    -->
+    <div>
+        div font
+            <li>font li</li>
+    </div>
+    <li id="li2">fontli2</li>
+
+</body>
+
+</html>

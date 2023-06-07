@@ -1,0 +1,31 @@
+body{
+    text-align: center;
+}
+*{
+    box-sizing: border-box;
+}
+form{
+    margin: 0 auto;
+    width: 370px;
+    text-align: left;
+}
+label{
+    display: inline-block;
+    width: 80px;
+}
+input[type="text"]{
+    width: 170px;
+    height: 40px;
+    margin: 20px;
+    padding: 10px;
+}
+input[type="button"]{
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 20px;
+    background-color: #6b6b6b;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
