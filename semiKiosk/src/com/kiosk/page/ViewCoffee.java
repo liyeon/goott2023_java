@@ -17,8 +17,12 @@ public class ViewCoffee extends JPanel implements ActionListener {
 	Map<Integer, String> price;
 	JButton[] btn;
 	KioskPage kioskPage;
+	CModel c = new CModel();
 
-	public ViewCoffee() {
+	public ViewCoffee(KioskPage kioskPage) {
+
+		this.kioskPage = kioskPage;
+
 		setLayout(new GridLayout(0, 4));
 		setBackground(Color.decode("#F8E8EE"));
 		btn = new JButton[6];
@@ -37,7 +41,7 @@ public class ViewCoffee extends JPanel implements ActionListener {
 			btn[i].setVerticalTextPosition(JButton.BOTTOM); // 버튼 수직 기준 텍스트 위치 지정
 			btn[i].setHorizontalTextPosition(JButton.CENTER); // 버튼 수평 기준 텍스트 위치 지정
 			btn[i].setBackground(Color.white);
-			btn[i].setText("<html><body><center>" + menu.get(i) + "<br/>" + price.get(i) + "</center></body></html>");
+			btn[i].setText("<html><body><center>" + menu.get(i) + "<br/>" + price.get(i) + "원</center></body></html>");
 			btn[i].addActionListener(this);
 			add(btn[i]);
 		} // for
@@ -45,23 +49,26 @@ public class ViewCoffee extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		for (int i = 0; i < this.btn.length; i++) {
-			if (e.getSource() == this.btn[i]) {
+		for (int i = 0; i < btn.length; i++) {
+			if (e.getSource() == btn[i]) {
 				System.out.println(menu.get(i));
 				System.out.println(price.get(i));
-				
-				sendVC();
+				c.setcName(menu.get(i));
+				c.setcPrice(price.get(i));
+				send();
 			} // if
 		} // for
 	}// method override
 
-	public void sendVC() {
-		new KioskPage().setVC(this);
-	}
-	
+	public void send() {
+		String msg = c.getcName()+":" + c.getcPrice();
+		// 모델에 입력한 문자열 추가하기
+		kioskPage.model.addElement(msg);
+	}// method
+
 	public void setMenu() {
-		menu.put(0, "HOT 아메리카노");
-		menu.put(1, "ICE 아메리카노");
+		menu.put(0, "HOT아메리카노");
+		menu.put(1, "ICE아메리카노");
 		menu.put(2, "카페라떼");
 		menu.put(3, "콜드브루");
 		menu.put(4, "카페모카");
@@ -69,11 +76,11 @@ public class ViewCoffee extends JPanel implements ActionListener {
 	}// method
 
 	public void setPrice() {
-		price.put(0, "2000원");
-		price.put(1, "2500원");
-		price.put(2, "3500원");
-		price.put(3, "4000원");
-		price.put(4, "3900원");
-		price.put(5, "3900원");
+		price.put(0, "2000");
+		price.put(1, "2500");
+		price.put(2, "3500");
+		price.put(3, "4000");
+		price.put(4, "3900");
+		price.put(5, "3900");
 	}// method
 }// class
