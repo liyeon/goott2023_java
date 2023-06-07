@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블!</title>
+    <style>
+        body {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        section {
+            margin: 0 auto;
+            width: 1100px;
+            text-align: left;
+        }
+
+        h1 {
+            color: #585858;
+            font-weight: 900;
+            font-size: 40px;
+        }
+
+        h1>span {
+            padding-left: 3em;
+        }
+
+        h4 {
+            color: #585858;
+        }
+
+        h4>span {
+            padding-left: 2em;
+        }
+
+        table {
+            width: 1000px;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        th {
+            background-color: #6b6b6b;
+            color: #FFFFFF;
+        }
+
+        th,td {
+            padding: 10px;
+            font-weight: bold;
+        }
+
+        .green {
+            background-color: #d7e4bb !important;
+        }
+
+        .orange {
+            background-color: #fbd4b3 !important;
+        }
+
+        .blue {
+            background-color: #dbe5f1 !important;
+        }
+        
+        tr:nth-child(odd) td {
+            background-color: #f4f4f4;
+        }
+
+        tr:nth-child(even) td {
+            background-color: #e0e0e0;
+        }
+
+        td {
+            color: #5d5d5d;
+            border: 3px solid #FFFFFF;
+        }
+
+        td:not(:first-child) {
+            width: 160px;
+        }
+
+        td:first-child {
+            border-left: none;
+        }
+
+
+        td:last-child {
+            border-right: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>수업 시간표<span>가을학기</span> </h1>
+        <h4>수업시간 : 7:30 <span>시간 간격 : 30 (분)</span></h4>
+        <table>
+            <tr>
+                <th>시간</th>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+                <th>목</th>
+                <th>금</th>
+            </tr>
+            <tr>
+                <td>7:30</td>
+                <td>아침식사</td>
+                <td>아침식사</td>
+                <td>아침식사</td>
+                <td>아침식사</td>
+                <td>아침식사</td>
+            </tr>
+            <tr>
+                <td>8:00</td>
+                <td rowspan="2" class="green">경영학 : 강의 <br>B관, 256호</td>
+                <td rowspan="3" class="orange">물리학 : 강의<br>J관, 309호</td>
+                <td rowspan="2" class="green">경영학 : 강의 <br>B관, 256호</td>
+                <td rowspan="3" class="orange">물리학 : 강의<br>J관, 309호</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>8:30</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>9:00</td>
+                <td rowspan="2" class="blue">응용 수학<br> H관, 100호</td>
+                <td rowspan="2" class="blue">응용 수학<br> H관, 100호</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>10:00</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>10:30</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>11:00</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>11:30</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+    </section>
+</body>
+
+</html>

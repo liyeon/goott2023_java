@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        header{
+            width: 100%;
+            height: 50px;
+            background-color: #519D9E;
+        }
+        nav{
+            float: left;
+            width: 200px;
+            height: 100px;
+            background-color: #58C9B9;
+        }
+        section{
+            float: right;
+            width: calc(100% - 200px);
+            height: 100px;
+            background-color: #9DC8C8;
+        }
+        footer{
+            width: 100%;
+            height: 50px;
+            background-color: #519D9E;
+        }
+        .clear{
+            clear: both;/*float 영향 해제*/
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <header></header>
+        <nav></nav>
+        <section></section>
+        <footer class="clear"></footer>
+    </div>
+</body>
+</html>
