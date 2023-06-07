@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function calc(){
+            let xnum = document.getElementById("x").value;
+            let ynum = document.getElementById("y").value;
+
+            let sum = parseInt(xnum) + parseInt(ynum);
+            document.getElementById("sum").placeholder=sum;
+        }
+    </script>
+</head>
+<body>
+    <h1>
+        덧셈계산기
+    </h1>
+    <form action="#">
+        <label for="num1">num1 : </label>
+        <input type="text" name="num1" id="x">
+        <label for="num2">num2 : </label>
+        <input type="text" name="num2" id="y">
+        <input type="button" value="계산" onclick="calc();"><br>
+        <label for="sum">sum : </label>
+        <input type="text" name="sum" id="sum" disabled><br>
+    </form>
+</body>
+</html>
