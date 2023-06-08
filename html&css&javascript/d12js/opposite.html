@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/css/style.css">
+</head>
+
+<body>
+    <h1>헤ㅔㅔㅔㅔㅔ딩ㅇㅇㅇㅇ</h1>
+    <button onclick="func()">click</button>
+    <button onclick="opposite('123456')">color</button>
+    <script>
+        function func() {
+            document.write("새로운 내용이 다시 쓰여집니다.");
+        }
+        function opposite(c) {
+            let result = "";
+            let ch = "";
+            let list1 = "123456789abcdef";
+            let list2 = "fedcba987654321";
+            for (let i = 0; i < c.length; i++) {
+                ch = c.charAt(i);
+                document.write("<p>" + ch + "</p>");
+                for (let j = 0; j < list1.length; j++) {
+                    if (ch === list1.charAt(j)) {
+                        result += list2.charAt(j);
+                    }
+                }
+            }
+            alert(result);
+        }
+    </script>
+</body>
+
+</html>

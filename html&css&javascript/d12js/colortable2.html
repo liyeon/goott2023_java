@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 100%;
+            text-align: center;
+        }
+
+        td {
+            box-sizing: border-box;
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <script>
+            function opposite(c) {
+                var result = '';
+                var ch = '';
+                var list1 = '0123456789abcedf';
+                var list2 = 'fedcba9876543210';
+                for (var i = 0; i < c.length; i++) {
+                    ch = c.charAt(i);
+                    for (var n = 0; n < list1.length; n++) {
+                        if (ch == list1.charAt(n)) {
+                            result += list2.charAt(n);
+                        }
+                    }
+                }
+                return result;
+            }
+            let dec = 15;
+            let r1, r2, r3, result;
+            let hex = dec.toString(16);//16진수로 변환
+            // document.write("<h3>배경색</h3");
+            for (i = 0; i < 16; i++) {
+                document.write("<tr>");
+                for (j = 0; j < 16; j++) {
+                    for (k = 0; k < 16; k++) {
+                        r1 = i.toString(16);
+                        r2 = j.toString(16);
+                        r3 = k.toString(16);
+                        result = r1 + r2 + r3 + r1 + r2 + r3;
+                        let l = opposite(result);
+                        document.write("<td style='background:#" + result + ";color:#" + l + ";'>#" + result + "</td>");
+                    }
+                    document.write("</tr>");
+                }
+            }
+
+        </script>
+    </table>
+</body>
+
+</html>

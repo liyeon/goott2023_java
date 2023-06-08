@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/css/style.css">
+</head>
+
+<body>
+    <!-- html 요소의 name 속성을 이용해서 데이터 처리 -->
+    <form action="#" name="myForm">
+        <label for="a0">필드 1 : </label>
+        <input type="text" name="a0">
+        <label for="a1">필드 3 : </label>
+        <input type="text" name="a1">
+        <label for="a2">필드 3 : </label>
+        <input type="text" name="a2">
+        <input type="button" value="reset" onclick="init()">
+    </form>
+</body>
+<script>
+    function init() {
+        for (let i = 0; i < 3; i++) {
+            document.myForm["a" + i].value = 100 * (i + 1);
+        }
+    };
+</script>
+
+</html>

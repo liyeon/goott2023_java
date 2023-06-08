@@ -1,0 +1,59 @@
+body{
+    text-align: center;
+    padding: 30px;
+}
+*{
+    box-sizing: border-box;
+}
+form{
+    margin: 0 auto;
+    width: 370px;
+    text-align: left;
+}
+label{
+    display: inline-block;
+    width: 80px;
+}
+input[type="text"]{
+    width: 170px;
+    height: 40px;
+    margin: 20px;
+    padding: 10px;
+}
+input[type="button"], button{
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 20px;
+    background-color: #6b6b6b;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* 테이블 */
+table {
+    font-family: '나눔고딕';
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+table td,
+table th {
+    border: 1px solid salmon;
+    padding: 15px;
+    color: white;
+}
+table tr:nth-child(even) td{
+    background-color: rgb(255, 153, 135);
+}
+table td {
+    color: white;
+    background-color: tomato;
+    text-align: center;
+    font-weight: bold;
+}
+table th{
+    background-color: rgb(255, 225, 221);
+    color: salmon;
+}
