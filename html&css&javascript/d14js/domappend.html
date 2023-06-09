@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            font: 20px bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- 노드 추가 -->
+    <div id="target" onclick="addText('동적 메시지 추가');">
+        이곳을 클릭하세요
+    </div>
+</body>
+<script>
+    addText=(msg)=>{
+        if(document.createTextNode){
+            let node = document.createTextNode(msg);
+            //타겟에 추가
+            document.querySelector("#target").appendChild(node);
+        }
+    }
+</script>
+</html>

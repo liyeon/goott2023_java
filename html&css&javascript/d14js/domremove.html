@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        div{
+            width: 500px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="target">
+        <p id="p1">첫번째단락</p>
+        <p id="p2">두번째단락</p>
+    </div>
+    <button onclick="removeNode()">클릭</button>
+</body>
+<script>
+    removeNode = () => {
+        console.log("신호")
+        //부모 노드를 통해 자식 노드 삭제
+        let parent = document.querySelector("#target");
+        let child = document.querySelector("#p1");
+        parent.removeChild(child);
+    }
+</script>
+
+</html>

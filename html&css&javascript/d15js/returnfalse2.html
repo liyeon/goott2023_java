@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="onload.html" onsubmit="return checkEmpty(document.getElementById('user'))">
+        이름 : <input type="text" name="user" id="user">
+        <input type="submit" value="확인">
+    </form>
+</body>
+<script>
+    checkEmpty=(field)=>{
+        console.log(field.value);
+        if(field.value.length===0){
+            //공백
+            alert("이름을 입력해주세요");
+            field.focus();
+            return false;
+        }
+    }
+</script>
+</html>

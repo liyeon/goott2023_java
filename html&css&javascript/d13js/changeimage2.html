@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/css/style.css">
+    <style>
+        input[type="button"] {
+            background-color: rgb(255, 155, 213);
+        }
+
+        img {
+            width: 120px;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="../imgs/poem.png" alt="깡깡쥐" id="image1">
+    <img src="https://t1.daumcdn.net/news/202105/25/holapet/20210525023300360gnuh.jpg" alt="깡깡쥐" id="image2">
+    <img src="https://blog.kakaocdn.net/dn/bAhg9F/btq74bulfuA/FklodkkDX2kAOFG62Z7rdK/img.jpg" alt="깡깡쥐" id="image3">
+    <img src="https://www.esocialtimes.com/news/photo/202206/26088_18996_3156.jpg" alt="깡깡쥐" id="image4"><br>
+    <input type="button" value="click1" onclick="changeImg(1);">
+    <input type="button" value="click2" onclick="changeImg(2);">
+    <input type="button" value="click3" onclick="changeImg(3);">
+    <input type="button" value="click4" onclick="changeImg(4);">
+    <script>
+        let flag = true;
+
+        function changeImg(i) {
+            if (flag) {
+                switch (i) {
+                    case 1: document.querySelector("#image1").src = "../imgs/poodle.png"; break;
+                    case 2: document.querySelector("#image2").src = "https://ichef.bbci.co.uk/news/640/cpsprodpb/E172/production/_126241775_getty_cats.png"; break;
+                    case 3: document.querySelector("#image3").src = "https://img.freepik.com/free-photo/adorable-kitty-looking-like-it-want-to-hunt_23-2149167099.jpg?w=2000"; break;
+                    case 4: document.querySelector("#image4").src = "https://src.hidoc.co.kr/image/lib/2022/5/12/1652337370806_0.jpg"; break;
+                }
+                flag = false;
+            } else {
+                switch (i) {
+                    case 1: document.querySelector("#image1").src = "../imgs/poem.png"; break;
+                    case 2: document.querySelector("#image2").src = "https://t1.daumcdn.net/news/202105/25/holapet/20210525023300360gnuh.jpg"; break;
+                    case 3: document.querySelector("#image3").src = "https://blog.kakaocdn.net/dn/bAhg9F/btq74bulfuA/FklodkkDX2kAOFG62Z7rdK/img.jpg"; break;
+                    case 4: document.querySelector("#image4").src = "https://www.esocialtimes.com/news/photo/202206/26088_18996_3156.jpg"; break;
+                }
+                flag = true;
+            }
+        }
+    </script>
+</body>
+</html>

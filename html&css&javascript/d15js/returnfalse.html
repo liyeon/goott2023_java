@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#">
+        이름 : <input type="text" name="user" id="user">
+        <input type="button" value="확인" onclick="checkEmpty(document.getElementById('user'));">
+    </form>
+</body>
+<script>
+    checkEmpty=(field)=>{
+        console.log(field.value);
+        if(field.value.length===0){
+            //공백
+            alert("이름을 입력해주세요");
+            field.focus();
+            return false;
+        }
+        location.replace("http://google.com");
+    }
+</script>
+</html>

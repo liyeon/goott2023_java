@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../style/css/style.css">
+</head>
+<body>
+    <script>
+        const checkid=()=>{
+            let s = document.querySelector("#id").value;
+            if(s.length<6)alert("6글자 이상 입력해주세요")
+            
+            let s1 ='문자1';
+            let s2 = '문자2';
+            let s3 = s1.concat(s2);//문자열 결합
+            let str="자바스크립트에 오신걸 환영합니다.";
+            //문자열 위치정보 알아보기
+            let pos = str.indexOf("오");//없는 글자를 넣었을 때는 -1 반환
+            alert(pos);
+        }
+    </script>
+    id : <input type="text" id="id">
+    <button onclick="checkid();">검사</button>
+</body>
+</html>
