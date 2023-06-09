@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onmousedown="onButtonDown(this)" onmouseup="onButtonUp(this)">버튼클리이이익</button>
+</body>
+<script>
+    onButtonDown=(btn)=>{
+        btn.style.color="#ff0000";
+    }
+    onButtonUp=(btn)=>{
+        btn.style.color="#00ff00";
+    }
+</script>
+</html>

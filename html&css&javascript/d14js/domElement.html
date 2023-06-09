@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p1">this is blue color!!!!</p>
+    <input type="button" value="클릭" onclick="changeStyle()">
+    <input type="button" value="elem hidden" onclick="document.querySelector('#p1').style.visibility='hidden';">
+    <input type="button" value="elem visible" onclick="document.querySelector('#p1').style.visibility='visible';">
+
+</body>
+<script>
+    changeStyle=()=>{
+        console.log("클릭");
+        //p1 스타일 변경
+        document.querySelector("#p1").style.color="red";
+        document.querySelector("#p1").style.fontFamily="impact";
+        document.querySelector("#p1").style.fontStyle="italic";
+        document.querySelector("#p1").style.color="red";
+        document.querySelector("#p1").style.color="red";
+    }
+</script>
+</html>

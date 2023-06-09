@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        test = () => {
+            try {
+                alert("hh")
+            } catch (error) {
+                let msg = "다음과 같은 오류 : "+error.message;
+                console.log(msg)
+            }
+        }
+    </script>
+    <input type="button" value="trycatch" onclick="test()">
+</body>
+
+</html>

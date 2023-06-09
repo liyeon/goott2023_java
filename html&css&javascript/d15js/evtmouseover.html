@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'TTWanjudaedunsancheB';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/TTWanjudaedunsancheB.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        div {
+            margin: 0 auto;
+            width: 500px;
+            height: 500px;
+            background-color: rgb(163, 155, 246);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'TTWanjudaedunsancheB';
+            font-size: 2em;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div onmouseover="onMouseIn(this)" onmouseout="onMouseOut(this)">마우스를 올려보세요</div>
+</body>
+<script>
+    onMouseIn = (elem) => {
+        elem.style.border="5px solid rgb(51, 33, 242)"
+    }
+    onMouseOut = (elem) => {
+        elem.style.border=""
+    }
+</script>
+
+</html>
