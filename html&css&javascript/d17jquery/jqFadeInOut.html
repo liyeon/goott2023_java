@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'TTWanjudaedunsancheB';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/TTWanjudaedunsancheB.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        body {
+            text-align: center;
+        }
+
+        button {
+            font-family: 'TTWanjudaedunsancheB';
+            font-size: 3em;
+            padding: 10px 30px;
+            color: #fff;
+            background-color: #EC7357;
+            border: none;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        #fadeIn {
+            background-color: #ec5786;
+        }
+
+        img {
+            display: none;
+            margin: 0 auto;
+            position: relative;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <!-- CDN content Delivery Network -->
+    <script>
+        $(document).ready(() => {
+            $("#fadeIn").click(function () {
+                $("#poem").fadeIn(200);
+            });
+            $("#fadeOut").click(function () {
+                $("#poem").fadeOut(200);
+            });
+            $("#toggle").click(function () {
+                $("#poem").fadeToggle(200);
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <button id="fadeIn">FADE IN</button>
+    <button id="fadeOut">FADE OUT</button>
+    <button id="toggle">TOGGLE</button>
+    <div>
+        <img src="../imgs/poem.png" id="poem">
+    </div>
+</body>
+
+</html>
