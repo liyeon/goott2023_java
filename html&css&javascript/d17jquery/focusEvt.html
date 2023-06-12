@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../script/jquery-3.7.0.min.js"></script>
+</head>
+
+<body>
+    <script>
+        
+        $(()=>{//문서가 준비되면
+            $("input").focus(function(){
+                $(this).css("background-color", "orange");
+            });
+            $("input").blur(function(){
+                $(this).css("background-color", "aqua");
+            });
+        });
+    </script>
+    ID : <input type="text" name="name" />
+</body>
+
+</html>

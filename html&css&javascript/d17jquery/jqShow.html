@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../script/jquery-3.7.0.min.js"></script>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        button {
+            font-family: 'impact';
+            font-size: 3em;
+            padding: 10px 30px;
+            color: #fff;
+            background-color: #EC7357;
+            border: none;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <button>
+        show it
+    </button>
+    <br>
+    <img src="../imgs/poodle.png">
+</body>
+<script>
+    $(() => {
+        $("button").click(function () {
+            $("img").fadeToggle(200);
+        });
+    });
+</script>
+</html>

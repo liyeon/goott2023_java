@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../script/jquery-3.7.0.min.js"></script>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: aquamarine;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        $().ready(function(){
+            $("#move").click(function(){
+                $("#coffee").animate({
+                    left:'300px',
+                    opacity:'0.1',
+                    width:'250px'
+                },5000);
+                $("div").animate({
+                    left:'300px',
+                    opacity:'0.1',
+                    width:'250px'
+                },5000);
+            })
+            $("#stop").click(function(){
+                $("#coffee").stop();
+            })
+        });
+    </script>
+    <img src="../imgs/coffee.png" alt="" width="120" height="100" style="position: relative;" id="coffee" ><br>
+
+    <div>
+        이동
+    </div>
+    <button id="move">animation move</button>
+    <button id="stop">animation stop</button>
+
+</body>
+</html>

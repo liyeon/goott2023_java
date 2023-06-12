@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="log">aaa</div>
+
+    <style>
+        body{
+            background-color: #eef;
+        }
+        div{
+            margin: 0 auto;
+            width: 500px;
+            height: 50px;
+            background-color: rgb(230, 173, 221);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+    </style>
+    <script>
+        //문서가 준비되면
+        $(()=>{
+            $(document).mousemove(function(e){//마우스 움직이면
+                //log 영역에 마우스 좌표값 출력
+                $("#log").text("x 좌표 : "+e.pageX+" Y 좌표 : "+e.pageY);
+            });
+        });
+    </script>
+</body>
+</html>
