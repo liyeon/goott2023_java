@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        .warning{
+            border : 1px solid red;
+            background-color: aquamarine;
+            font-size: x-large;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        button {
+            font-family: 'impact';
+            font-size: x-large;
+            padding: 10px 30px;
+            color: #fff;
+            background-color: #EC7357;
+            border: none;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+    </style>
+    <script src="../script/jquery-3.7.0.min.js"></script>
+    <script>
+        $(()=>{
+            $('#button1').click(function(){
+                $('#div1').addClass('warning');
+            });
+            $('#button2').click(function(){
+                $('#div1').removeClass('warning');
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="div1">
+        예제 단락
+    </div>
+    <button id="button1">
+        addClasssssssss
+    </button>
+    <button id="button2">
+        removeeeeeClasssssssss
+    </button>
+</body>
+</html>

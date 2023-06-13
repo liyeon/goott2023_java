@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../script/jquery-3.7.0.min.js"></script>
+</head>
+<script>
+    $(()=>{
+        $("button").click(function(){
+            $("#coffee").attr("src","../imgs/lion.png");
+        });
+    });
+</script>
+<body>
+    <img src="../imgs/coffee.png" width="120" id="coffee">
+    <button>attr</button>
+</body>
+</html>
