@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            display: none;
+        }
+    </style>
+    <script src="../script/jquery-3.7.0.min.js"></script>
+    <script>
+        $(()=>{
+            $('button').click(function(){
+                //메소드 체인
+                $('img').show('slow').fadeOut(300).slideDown('slow')
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>메소드 체인 시작</button>
+    <img src="https://blog.kakaocdn.net/dn/kZ5nI/btscjj9nu5R/w2UFg1qchGXlofd9yI99rK/img.gif">
+</body>
+</html>

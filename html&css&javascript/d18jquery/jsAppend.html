@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script>
+        $(() => {
+            //뒤에 추가
+            $("#button1").click(function () {
+                $("p").append("<b style='color:red;'>hihi</b>");
+            });
+            //앞에 추가
+            $("#button2").click(function () {
+                $("p").prepend("<b style='color:aquamarine;''>hihi</b>");
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <p>I Like to say,</p>
+    <button id="button1">append</button>
+    <button id="button2">prepend</button>
+</body>
+
+</html>

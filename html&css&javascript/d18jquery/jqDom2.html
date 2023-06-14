@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script>
+        $(()=>{
+            $("#text").click(function(){
+                $("#target").text("<b>단락 변경</b>")
+            });
+            $("#html").click(function(){
+                $("#target").html("<b>단락 변경</b>")
+            });
+        });
+    </script>
+</head>
+<body>
+    <p id="target">이곳은 <strong>하나의</strong>단락입니다.</p>
+    <button id="text">text button</button>
+    <button id="html">html button</button>
+</body>
+</html>

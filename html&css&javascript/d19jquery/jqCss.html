@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        div{
+            margin: 0 auto;
+            width: 100px;
+            height: 100px;
+            background-color: rgb(33, 114, 255);
+        }
+    </style>
+    <script src="../script/jquery-3.7.0.min.js"></script>
+    <script>
+        $(()=>{
+            $('#button1').click(function(){
+                // div1의 배경색을 얻어서 result 에 출력
+                let color = $('#div1').css('background-color');
+                console.log(color)
+                $('#result').text(color);
+            });
+            $('#button2').click(function(){
+                let color = $('#div1').css('background-color');
+                //div 배경색 변경
+                $('#div1').css('background-color','rgb(255, 248, 33)');
+            });
+            
+        });
+    </script>
+</head>
+<body>
+    <div id="div1">
+
+    </div>
+    <button id="button1">css ( ele )</button>
+    <button id="button2">css (ele , style)</button>
+    <p id="result">결과표시</p>
+</body>
+</html>

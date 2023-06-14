@@ -1,0 +1,30 @@
+#main_img{
+    width: 971px;
+    margin: 0 auto;
+    background-image: url(../img/img_back.png);
+    background-repeat: no-repeat;
+    background-position: center top;
+
+}
+#main_img img{
+    width: 100%;
+    height: auto;
+    margin: 9px 0 0 0;
+}
+
+/* article */
+article#front{
+    margin : 20px 0 5px 20px;
+    clear: both;
+    width: 98%;
+    height: 380px;
+}
+
+#solution {
+    background: #ebebeb;
+    border: solid 1px #ccc;
+    border-radius: 10px;
+    width: 910px;
+    min-height: 150px;
+    padding: 10px;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 70px;
+            height: 70px;
+            margin: 5px;
+            display: inline-block;
+            background-color: rgb(255, 214, 214);
+        }
+    </style>
+    <script src="../script/jquery-3.7.0.min.js"></script>
+    <script>
+        $(()=>{
+            let modiWidth=50;
+            $('div').click(function(){ 
+                //클릭한 div의 width 값 변경
+                $(this).width(modiWidth).addClass('next');
+                modiWidth-=8;//클릭할때마다감소
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+</body>
+</html>

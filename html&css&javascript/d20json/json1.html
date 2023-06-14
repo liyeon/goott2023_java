@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'Spoqa Han Sans';
+            font-weight: 700;
+            src: local('Spoqa Han Sans Bold'),
+                url('https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@01ff0283e4f36e159ffbf744b36e16ef742da6d8/Subset/SpoqaHanSans/SpoqaHanSansBold.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@01ff0283e4f36e159ffbf744b36e16ef742da6d8/Subset/SpoqaHanSans/SpoqaHanSansBold.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@01ff0283e4f36e159ffbf744b36e16ef742da6d8/Subset/SpoqaHanSans/SpoqaHanSansBold.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Spoqa Han Sans';
+            font-weight: 400;
+            src: local('Spoqa Han Sans Regular'),
+                url('https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@01ff0283e4f36e159ffbf744b36e16ef742da6d8/Subset/SpoqaHanSans/SpoqaHanSansRegular.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@01ff0283e4f36e159ffbf744b36e16ef742da6d8/Subset/SpoqaHanSans/SpoqaHanSansRegular.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@01ff0283e4f36e159ffbf744b36e16ef742da6d8/Subset/SpoqaHanSans/SpoqaHanSansRegular.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Spoqa Han Sans';
+            font-weight: 300;
+            src: local('Spoqa Han Sans Light'),
+                url('https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@01ff0283e4f36e159ffbf744b36e16ef742da6d8/Subset/SpoqaHanSans/SpoqaHanSansLight.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@01ff0283e4f36e159ffbf744b36e16ef742da6d8/Subset/SpoqaHanSans/SpoqaHanSansLight.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@01ff0283e4f36e159ffbf744b36e16ef742da6d8/Subset/SpoqaHanSans/SpoqaHanSansLight.ttf') format('truetype');
+        }
+
+        @font-face {
+            font-family: 'Spoqa Han Sans';
+            font-weight: 100;
+            src: local('Spoqa Han Sans Thin'),
+                url('https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@01ff0283e4f36e159ffbf744b36e16ef742da6d8/Subset/SpoqaHanSans/SpoqaHanSansThin.woff2') format('woff2'),
+                url('https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@01ff0283e4f36e159ffbf744b36e16ef742da6d8/Subset/SpoqaHanSans/SpoqaHanSansThin.woff') format('woff'),
+                url('https://cdn.jsdelivr.net/gh/spoqa/spoqa-han-sans@01ff0283e4f36e159ffbf744b36e16ef742da6d8/Subset/SpoqaHanSans/SpoqaHanSansThin.ttf') format('truetype');
+        }
+
+        /* styles.css */
+
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Spoqa Han Sans', sans-serif;
+        }
+
+        html {
+            font-size: 16px;
+            font-family: 'Spoqa Han Sans', sans-serif;
+            letter-spacing: -.03em;
+            color: #212529;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+        }
+
+        h4 {
+            width: 360px;
+            font-weight: 100;
+            font-size: 32px;
+            line-height: 1.5;
+            margin-bottom: 1em;
+            color: #101010;
+            letter-spacing: -.05em;
+        }
+
+        p {
+            display: block;
+            width: 360px;
+            height: 500px;
+            font-size: 20px;
+            padding: 20px;
+            border: 1px dashed #2c3530;
+
+        }
+
+
+    </style>
+</head>
+
+<body>
+    <h4>학생명단</h4>
+    <p>
+        이름 : <span id="name"></span>&nbsp | &nbsp; 나이 : <span id="age"></span>
+    </p>
+    <script>
+        // json 형태의 데이터
+        let s = '[' +
+            '{"name" : "hong1","age":"21"},'+
+            '{"name" : "hong2","age":"22"},'+
+            '{"name" : "hong3","age":"23"},'+
+            '{"name" : "hong4","age":"24"},'+
+            '{"name" : "hong5","age":"25"},'+
+            '{"name" : "hong6","age":"26"},'+
+            '{"name" : "hong7","age":"27"},'+
+            '{"name" : "hong8","age":"28"},'+
+            '{"name" : "hong9","age":"29"}]';
+        //자바스크립트를 활용한 json 데이터의 객체화
+        let student=JSON.parse(s);
+
+        // 데이터 수정
+        student[0].name='kang';
+
+        //출력
+        document.getElementById("name").innerHTML=student[0].name;
+        document.getElementById("age").innerHTML=student[0].age;
+    </script>
+</body>
+
+</html>

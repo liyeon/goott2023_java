@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../script/jquery-3.7.0.min.js"></script>
+</head>
+<script>
+    // 단순한 json 구조
+    let param1 = {
+        "name1" : "Tom1",
+        "name2" : "Tom2",
+        "name3" : "Tom3"
+    };
+
+    let param2 = {
+        "name1" : "111",
+        "name2" : "222",
+        "name3" : "333"
+    };
+
+    $(()=>{
+        jsonGetData();
+    });
+
+    jsonGetData=()=>{
+        console.log(param1.name1);
+        console.log(param1.name2);
+    }
+</script>
+</html>

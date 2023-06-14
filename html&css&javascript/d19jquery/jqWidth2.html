@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 70px;
+            height: 70px;
+            margin: 5px;
+            display: inline-block;
+            background-color: rgb(255, 214, 214);
+        }
+    </style>
+    <script src="../script/jquery-3.7.0.min.js"></script>
+    <script>
+
+        $(() => {
+            let modiWidth = 50;
+            let bool = true;
+            let count = 0;
+
+            $('div').click(function () {
+                //삼항연산자
+                bool ? $(this).width(modiWidth).addClass('next') : $(this).width(modiWidth).removeClass('next');
+                count++;
+                if (count % 5 == 0) {
+                    bool=!bool;
+                }
+                bool?modiWidth-=8:modiWidth+=8;
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+</body>
+
+</html>

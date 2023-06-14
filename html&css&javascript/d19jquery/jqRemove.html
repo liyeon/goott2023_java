@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        p {
+            background-color: salmon;
+        }
+
+        .container {
+            margin: 20px auto;
+            height: 90px;
+            width: 200px;
+            border: 2px solid salmon;
+        }
+    </style>
+    <script src="../script/jquery-3.7.0.min.js"></script>
+    <script>
+        $(() => {
+            $('#button1').click(function () {
+                //div 자체 삭제
+                $('.container').remove();
+            });
+            $('#button2').click(function () {
+                //div 안의 내용물 삭제
+                $('.container').empty();
+            });
+
+        });
+    </script>
+</head>
+
+<button id="button1">remove</button>
+<button id="button2">empty</button>
+<div class="container">
+    <p class="hello">HELLO</p>
+    <p class="bye">BYEBYE</p>
+</div>
+
+</html>
