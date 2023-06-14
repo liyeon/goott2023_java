@@ -7,8 +7,8 @@
     <title>Document</title>
     <style>
         div {
-            width: 50px;
-            height: 50px;
+            width: 70px;
+            height: 70px;
             margin: 5px;
             display: inline-block;
             background-color: rgb(255, 214, 214);
@@ -16,18 +16,20 @@
     </style>
     <script src="../script/jquery-3.7.0.min.js"></script>
     <script>
+
         $(() => {
             let modiWidth = 50;
+            let bool = true;
             let count = 0;
+
             $('div').click(function () {
-                //클릭한 div의 width 값 변경
-                $(this).width(modiWidth).addClass('next');
+                //삼항연산자
+                bool ? $(this).width(modiWidth).addClass('next') : $(this).width(modiWidth).removeClass('next');
                 count++;
-                if (count > 5) {
-                    modiWidth += 8;
-                } else {
-                    modiWidth -= 8
+                if (count % 5 == 0) {
+                    bool=!bool;
                 }
+                bool?modiWidth-=8:modiWidth+=8;
             });
         });
     </script>
