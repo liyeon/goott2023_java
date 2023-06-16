@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid gray;
+            padding: 10px 20px;
+        }
+    </style>
+    <script src="../script/jquery-3.7.0.min.js"></script>
+    <script>
+        $(() => {
+            $.ajax({
+                url: 'item.json',
+                dataType: 'json',
+                success: (data) => {
+                    $('#treeData').append(
+                        "<tr><td>id</td>" +
+                        "<td>name</td>" +
+                        "<td>price</td>" +
+                        "<td>description</td></tr>"
+                    );
+                    $.each(data, function(i){
+                        $('#treeData').append(
+                            "<tr><td>"+this.id+"</td>" +
+                            "<td>"+this.name+"</td>" +
+                            "<td>"+this.price+"</td>" +
+                            "<td>"+this.description+"</td></tr>"
+                        );
+                    });
+                }
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <!-- json 데이터 추가 -->
+    <h3>jsonData 추가</h3>
+    <table id="treeData">
+    </table>
+</body>
+
+</html>

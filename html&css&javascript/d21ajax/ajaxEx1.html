@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            text-align: center;
+        }
+        div{
+            margin: 0 auto;
+            width: 300px;
+            border: 1px solid rgb(158, 158, 255);
+            padding: 20px;
+            line-height: 2em;
+        }
+    </style>
+    <script src="../script/jquery-3.7.0.min.js"></script>
+    <script>
+        $(()=>{
+            $('button').click(function(){
+                $.ajax({
+                    url:'demo.txt',
+                    async:true,//비동기 통신하겠냐는
+                    success:function(result){
+                        $('#div1').html(result);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <h1>Let jQuery Ajax Change</h1>
+    </div>
+    <button>change txt</button>
+    <h3>
+        content
+    </h3>
+    <h3>
+        content
+    </h3>
+    <h3>
+        content
+    </h3>
+    <h3>
+        content
+    </h3>
+</body>
+</html>

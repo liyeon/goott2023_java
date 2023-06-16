@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        div {
+            margin: 10px auto;
+            width: 300px;
+            border: 1px solid rgb(158, 158, 255);
+            padding: 20px;
+            line-height: 2em;
+            display: inline-block;
+        }
+    </style>
+    <script src="../script/jquery-3.7.0.min.js"></script>
+    <script>
+        $(() => {
+            $('#menu1').click(function () {
+                $('#message1').load('menu.html');
+                return false;
+            });
+            $('#menu2').click(function () {
+                $('#message2').load('menu.html li');
+                return false;
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <!-- 서버의 데이터를 대상으로 엘리먼트에 삽입 -->
+    <div>
+        <a href="#" id="menu1">메뉴보기</a>
+        <span id="message1"></span>
+    </div>
+    <div>
+        <a href="#" id="menu2">메뉴보기2</a>
+        <span id="message2"></span>
+    </div>
+</body>
+
+</html>
