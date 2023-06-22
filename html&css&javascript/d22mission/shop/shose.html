@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>패쇼옹</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <img src="./logo.png" alt="로고">
+    </header>
+    <article>
+        <ul>
+            <script>
+                let descript = [
+                    "여우비 통굽 숏 레인부츠(5.5cm)",
+                    "발편한 젤리 아쿠아슈즈(2cm)",
+                    "(경량창) 마음속에 슬리퍼(3cm)",
+                    "(쫀득몰드창) 썸머오션 쪼리(2.5cm)",
+                ];
+
+                let price = [
+                    37800,
+                    15120,
+                    32220,
+                    19380,
+                ];
+                for (let i = 0; i < 3; i++) {
+                    
+                    for (let j = 0; j < 4; j++) {
+                        document.write("<li onclick='open_detail()'>");
+                        document.write("<img src='./img0" + (j + 1) + ".gif'>")
+                        document.write("<div class='product__name'><a href='javascript:void(0);''>");
+                        document.write(descript[j]);
+                        document.write("</a></div>");
+                        document.write("<div class='product__desc'>");
+                        document.write("<p class='red'>★타임세일★ 10% 할인중</p>");
+                        // document.write("<p class='gray'>유니크한 조직감이 매/력/포/인/트 ♡ 세련된 버튼 콤비 디자인으로 단아한 무드up!!</p>");
+                        document.write("<div class='product__price'><span>");
+                        let a = price[j] * 0.1
+                        document.write(price[j] + "원");
+                        document.write("</span><span class='discount'>");
+                        document.write(price[j] - a + "원");
+                        document.write("</span></div>");
+                        document.write("</div>");
+                        document.write("</li>");
+                    }
+                }
+
+                open_detail = () => {
+                    window.open("./shosedetail.html","detail", "width=700,height=400");
+                }
+            </script>
+        </ul>
+    </article>
+</body>
+
+</html>
