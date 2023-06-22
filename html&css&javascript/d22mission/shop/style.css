@@ -118,25 +118,53 @@ li p {
 .detail__con {
     width: 53%;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
-
+.detail__con >div{
+    margin-bottom: 20px;
+}
 .detail__con a {
     font-size: 25px;
 }
 
+.detail_option{
+    width: 100%;
+}
+.detail_option > div{
+    width: 100%;
+    margin: 10px 0;
+}
+.detail_option label{
+    display: inline-block;
+    width: 33%;
+}
+.detail_option select{
+    width: 65%;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid var(--color-gray--);
+    border-radius: 5px;
+}
 .btn_wrap {
     width: 100%;
 }
 
 .btn_wrap button {
     font-size: var(--font-size-large--);
-    padding: 10px 20px;
+    padding: 10px 33px;
     height: 50px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    background-color: #f0f0f0;
+    color: var(--color-black--);
 }
-
+.btn_wrap button:last-child{
+    color: #fff;
+    background-color: #d7c9cf;
+}
 .btn_wrap input[type="number"] {
     width: 50px;
     height: 50px;
@@ -162,7 +190,7 @@ li p {
         width: 100%;
     }
 
-    img {
+    header img {
         width: 70%;
         height: auto;
     }

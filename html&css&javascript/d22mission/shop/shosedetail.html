@@ -8,22 +8,80 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body style="overflow-y: hidden">
     <article class="detail">
         <div class="detail__img">
-            <img src='./img01.gif'>
+            <script>
+                let descript = [
+                    "여우비 통굽 숏 레인부츠(5.5cm)",
+                    "발편한 젤리 아쿠아슈즈(2cm)",
+                    "(경량창) 마음속에 슬리퍼(3cm)",
+                    "(쫀득몰드창) 썸머오션 쪼리(2.5cm)",
+                ];
+
+                let price = [
+                    37800,
+                    15120,
+                    32220,
+                    19380,
+                ];
+                const urlStr = window.location.href;
+                const url = new URL(urlStr);
+                console.log(url);
+                const urlParams = url.searchParams;
+                const dataParams = urlParams.get('data');
+                console.log(dataParams);
+                const i = parseInt(dataParams);
+                document.write("<img src='./img0" + (i + 1) + ".gif'>");
+                let a = price[i] * 0.1
+            </script>
         </div>
         <div class="detail__con">
-            <a href='javascript:void(0);''>여우비 통굽 숏 레인부츠(5.5cm)</a>
-                <div class='product__price'>
-                    <span>37800원</span>
-                    <span class='discount'>34020원</span>
+            <a href='javascript:void(0);'>
+                <script>
+                    document.write(descript[i]);
+                </script>
+            </a>
+            <div class=' product__price'>
+                <span>
+                    <script>
+                        document.write(price[i]+" 원");
+                    </script>
+                </span>
+                <span class='discount'>
+                    <script>
+                        document.write(price[i]-a+" 원");
+                    </script>
+                </span>
+            </div>
+            <div class="detail_option">
+                <div>
+                    <label for="color">색상(COLOR)</label>
+                    <select name="color" id="color">
+                        <option value>옵션선택</option>
+                        <option value="0">BLACK</option>
+                        <option value="1">WHITE</option>
+                    </select>
                 </div>
-                <div class="btn_wrap">
-                    <input type="number" name="num" id="number" placeholder="1">
-                    <button type="button">장바구니</button>
-                    <button type="button">바로구매</button>
+
+                <div>
+                    <label for="size">사이즈(SIZE)</label>
+                    <select name="size" id="size">
+                        <option value>옵션선택</option>
+                        <option value="0">210</option>
+                        <option value="1">220</option>
+                        <option value="2">230</option>
+                        <option value="3">240</option>
+                        <option value="4">250</option>
+                        <option value="5">260</option>
+                    </select>
                 </div>
+            </div>
+            <div class="btn_wrap">
+                <input type="number" name="num" id="number" placeholder="1">
+                <button type="button">장바구니</button>
+                <button type="button">바로구매</button>
+            </div>
         </div>
     </article>
 
