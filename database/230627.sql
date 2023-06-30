@@ -169,8 +169,9 @@ order by goods;
 --도구 -> 데이터베이스 익스포트
 
 --HR계정 console 백업, C에 backuphr 폴더 만들기 -> cmd에서 명령어
+-- export
 C:\backuphr>exp userid=hr/123456@xe file=c:\backuphr\hralltable.dump
---HR계정 console 복원
+--HR계정 console 복원 import
 C:\backuphr>imp hr/123456@xe file=c:\backuphr\hralltable.dump
 
 --특정테이블 백업
